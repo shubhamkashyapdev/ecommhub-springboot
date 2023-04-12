@@ -6,25 +6,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
-class CategoryRepositoryTest {
+class PostCategoryRepositoryTest {
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private PostCategoryRepository postCategoryRepository;
 
     @Test
     public void saveCategory(){
-        Category category = Category.builder()
+        PostCategory postCategory = PostCategory.builder()
                 .name("DSA")
                 .build();
-        categoryRepository.save(category);
+        postCategoryRepository.save(postCategory);
     }
 
     @Test
     public void fetchAllCategories(){
-        List<Category> categories= categoryRepository.findAll();
+        List<PostCategory> categories= postCategoryRepository.findAll();
         System.out.println(categories);
     }
 

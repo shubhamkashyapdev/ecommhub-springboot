@@ -1,8 +1,8 @@
 package com.ecommhub.blog.post;
 
-import com.ecommhub.blog.category.Category;
-import com.ecommhub.blog.category.CategoryRepository;
-import com.ecommhub.blog.tag.Tag;
+import com.ecommhub.blog.category.PostCategory;
+import com.ecommhub.blog.category.PostCategoryRepository;
+import com.ecommhub.blog.tag.PostTag;
 import com.ecommhub.blog.tag.TagRepository;
 import com.ecommhub.user.User;
 import com.ecommhub.user.UserRepository;
@@ -13,9 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -24,7 +21,7 @@ class PostRepositoryTest {
     @Autowired
     private PostRepository postRepository;
     @Autowired
-    private CategoryRepository categoryRepository;
+    private PostCategoryRepository postCategoryRepository;
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -45,31 +42,31 @@ class PostRepositoryTest {
                 .build();
         User db_user = userRepository.save(user);
         // category for blog post
-        Category category = Category.builder()
+        PostCategory postCategory = PostCategory.builder()
                 .name("DSA")
                 .build();
-        Category db_category = categoryRepository.save(category);
+        PostCategory db_Post_category = postCategoryRepository.save(postCategory);
         // tags for blog post
-        List<Tag> tags=new ArrayList<Tag>();
+        List<PostTag> postTags =new ArrayList<PostTag>();
         for(int i = 0; i < 5; i++){
-            Tag tag = Tag.builder()
+            PostTag postTag = PostTag.builder()
                     .name("Tag " + i)
                     .build();
-            Tag db_tag = tagRepository.save(tag);
-            tags.add(db_tag);
+            PostTag db_Post_tag = tagRepository.save(postTag);
+            postTags.add(db_Post_tag);
         }
-        System.out.println(tags);
+        System.out.println(postTags);
         Post post = Post.builder()
                 .title("Learn DSA")
                 .content("Learn DSA From Zero To Hero")
-                .category(db_category)
+                .postCategory(db_Post_category)
                 .author(db_user)
-                .tags(tags)
+                .postTags(postTags)
                 .build();
         Post post1 = Post.builder()
                 .title("DSA Masterclass")
                 .content("DSA Masterclass to step up your Developer Game")
-                .category(db_category)
+                .postCategory(db_Post_category)
                 .build();
 
         postRepository.save(post);

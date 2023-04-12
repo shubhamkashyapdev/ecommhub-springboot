@@ -1,7 +1,7 @@
 package com.ecommhub.blog.post;
 
-import com.ecommhub.blog.category.Category;
-import com.ecommhub.blog.tag.Tag;
+import com.ecommhub.blog.category.PostCategory;
+import com.ecommhub.blog.tag.PostTag;
 import com.ecommhub.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -48,7 +48,7 @@ public class Post {
             name="category_id",
             referencedColumnName = "categoryId"
     )
-    private Category category;
+    private PostCategory postCategory;
 
     @ManyToMany(
             fetch = FetchType.EAGER
@@ -58,7 +58,7 @@ public class Post {
             joinColumns = {@JoinColumn(name="post_id")},
             inverseJoinColumns = {@JoinColumn(name="tag_id")}
     )
-    private List<Tag> tags;
+    private List<PostTag> postTags;
 
     // @todo - timestamps to be added
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Category {
+public class PostCategory {
     @Id
     @SequenceGenerator(
             name = "category_id_sequence",

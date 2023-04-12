@@ -7,10 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
-class TagRepositoryTest {
+class PostTagRepositoryTest {
     @Autowired
     private TagRepository tagRepository;
 
@@ -20,21 +18,21 @@ class TagRepositoryTest {
 
     @Test
     public void saveTag(){
-        Tag tag1 = Tag.builder()
+        PostTag postTag1 = PostTag.builder()
                 .name("Javascript")
                 .build();
-        Tag tag2 = Tag.builder()
+        PostTag postTag2 = PostTag.builder()
                 .name("Javascript")
                 .build();
-        tagRepository.save(tag1);
-        tagRepository.save(tag2);
-        List<Tag> tags = tagRepository.findAll();
-        System.out.println(tags);
+        tagRepository.save(postTag1);
+        tagRepository.save(postTag2);
+        List<PostTag> postTags = tagRepository.findAll();
+        System.out.println(postTags);
     }
 
     @Test
     public void fetchAllTags(){
-        List<Tag> tags = tagRepository.findAll();
-        System.out.println(tags);
+        List<PostTag> postTags = tagRepository.findAll();
+        System.out.println(postTags);
     }
 }

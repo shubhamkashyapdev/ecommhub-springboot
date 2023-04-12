@@ -1,4 +1,4 @@
-package com.ecommhub.blog.tag;
+package com.ecommhub.payment;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Tag {
+public class Payment {
     @Id
     @SequenceGenerator(
-            name = "tags_id_sequence",
-            sequenceName = "tags_id_sequence",
+            name = "payment_id_sequence",
+            sequenceName = "payment_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
-            generator = "tags_id_sequence",
+            generator = "payment_id_sequence",
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
-    private String name;
 }
