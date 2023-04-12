@@ -1,6 +1,7 @@
 package com.ecommhub.product;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +25,6 @@ public class ProductTag {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
+    @NotBlank(message = "Please provide product tag name")
+    private String name;
 }

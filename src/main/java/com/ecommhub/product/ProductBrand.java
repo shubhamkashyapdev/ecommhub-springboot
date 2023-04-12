@@ -1,6 +1,7 @@
 package com.ecommhub.product;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +24,7 @@ public class ProductBrand {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
+    @NotBlank(message="Please provide brand name")
+    private String name;
+    private String image;
 }

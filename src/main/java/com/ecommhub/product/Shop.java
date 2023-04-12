@@ -1,4 +1,4 @@
-package com.ecommhub.shop;
+package com.ecommhub.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,4 +23,12 @@ public class Shop {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
+    private String name;
+    private boolean isActive;
+    private String description;
+    private String address;
+    private String coverImage;
+    private String logo;
+    private String mobileNumber;
+    private String website;
 }
