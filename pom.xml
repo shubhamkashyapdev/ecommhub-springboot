@@ -8,10 +8,10 @@
 		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.skdev</groupId>
-	<artifactId>skdev</artifactId>
+	<groupId>com.ecommhub</groupId>
+	<artifactId>ecommhub</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sk-dev</name>
+	<name>ecommhub</name>
 	<description>Sandbox project for Spring Boot</description>
 	<properties>
 		<java.version>20</java.version>
