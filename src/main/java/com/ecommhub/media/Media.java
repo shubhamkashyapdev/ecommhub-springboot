@@ -25,4 +25,8 @@ public class Media {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
+    private String url;
+    private int height;
+    private int width;
+    private String alt;
 }

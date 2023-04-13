@@ -1,5 +1,6 @@
 package com.ecommhub.user;
 
+import com.ecommhub.cart.Cart;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +36,12 @@ public class User implements UserDetails {
     private String lastName;
     private String email;
     private String password;
+
+    @OneToOne(
+            mappedBy = "user"
+    )
+    private Cart cart;
+
 
     @Enumerated(EnumType.STRING)
     private Role role;

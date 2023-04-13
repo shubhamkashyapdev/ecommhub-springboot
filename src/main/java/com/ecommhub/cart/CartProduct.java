@@ -1,5 +1,6 @@
-package com.ecommhub.order;
+package com.ecommhub.cart;
 
+import com.ecommhub.order.Order;
 import com.ecommhub.product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,15 +13,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderProduct {
+public class CartProduct {
     @Id
     @SequenceGenerator(
-            name = "order_product_id_sequence",
-            sequenceName = "order_id_sequence",
+            name = "cart_product_id_sequence",
+            sequenceName = "cart_product_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
-            generator = "order_product_id_sequence",
+            generator = "cart_product_id_sequence",
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
@@ -31,6 +32,7 @@ public class OrderProduct {
             referencedColumnName = "id"
     )
     private Product product;
+
     private int quantity;
     private int price;
 }

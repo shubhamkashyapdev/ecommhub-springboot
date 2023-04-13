@@ -45,9 +45,12 @@ public class Order {
     private User user;
 
     @OneToMany(
-            mappedBy = "order",
             orphanRemoval = true,
             cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name="order_product_id",
+            referencedColumnName = "id"
     )
     private List<OrderProduct> orderProduct;
 
