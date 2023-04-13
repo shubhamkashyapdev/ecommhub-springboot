@@ -1,5 +1,6 @@
 package com.ecommhub.product;
 
+import com.ecommhub.order.Order;
 import com.ecommhub.product.fields.ProductAttribute;
 import com.ecommhub.product.fields.SaleType;
 import com.ecommhub.seasonal.Seasonal;
@@ -80,6 +81,10 @@ public class Product {
             referencedColumnName = "id"
     )
     private Shop shop;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
 
 }

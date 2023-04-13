@@ -1,56 +1,43 @@
 package com.ecommhub.order;
 
-import com.ecommhub.payment.Payment;
 import com.ecommhub.product.Product;
-import com.ecommhub.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "orders")
-public class Order {
-
+public class OrderProduct {
     @Id
     @SequenceGenerator(
-            name = "order_id_sequence",
+            name = "order_product_id_sequence",
             sequenceName = "order_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
-            generator = "order_id_sequence",
+            generator = "order_product_id_sequence",
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
-    @OneToOne
-    @JoinColumn(
-            name="payment_id",
-            referencedColumnName = "id"
-    )
-    private Payment payment;
 
     @ManyToOne
     @JoinColumn(
-            name="user_id",
+            name="order_id",
             referencedColumnName = "id"
     )
-    private User user;
+    private Order order;
 
-    @OneToMany(
-            mappedBy = "order",
-            orphanRemoval = true,
-            cascade = CascadeType.ALL
+    @ManyToOne
+    @JoinColumn(
+            name="product_id",
+            referencedColumnName = "id"
     )
-    private List<OrderProduct> orderProduct;
-
-
-
+    private Product product;
+    private int quantity;
+    private int price;
 }
