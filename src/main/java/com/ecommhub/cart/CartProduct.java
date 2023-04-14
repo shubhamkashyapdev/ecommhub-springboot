@@ -2,11 +2,9 @@ package com.ecommhub.cart;
 
 import com.ecommhub.order.Order;
 import com.ecommhub.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
@@ -26,13 +24,33 @@ public class CartProduct {
     )
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(
             name="product_id",
             referencedColumnName = "id"
     )
     private Product product;
 
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name="cart_id",
+            referencedColumnName = "id"
+    )
+    private Cart cart;
+
     private int quantity;
     private int price;
+
+    @Override
+    public String toString() {
+        return "CartProduct{" +
+                "id=" + id +
+                ", product=" + product.getId() +
+                ", cart=" + cart.getId() +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
 }

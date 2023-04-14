@@ -1,6 +1,7 @@
 package com.ecommhub.user;
 
 import com.ecommhub.cart.Cart;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,8 +39,10 @@ public class User implements UserDetails {
     private String password;
 
     @OneToOne(
-            mappedBy = "user"
+            mappedBy = "user",
+            fetch = FetchType.LAZY
     )
+    @JsonIgnore
     private Cart cart;
 
 
@@ -79,5 +82,18 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", cart=" + (cart != null ? cart.getId() : null) +
+                ", role=" + role +
+                '}';
     }
 }
