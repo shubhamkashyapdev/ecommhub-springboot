@@ -41,7 +41,6 @@ public class CartProduct {
     private Cart cart;
 
     private int quantity;
-    private int price;
 
     @Override
     public String toString() {
@@ -50,7 +49,6 @@ public class CartProduct {
                 ", product=" + product.getId() +
                 ", cart=" + cart.getId() +
                 ", quantity=" + quantity +
-                ", price=" + price +
                 '}';
     }
 }

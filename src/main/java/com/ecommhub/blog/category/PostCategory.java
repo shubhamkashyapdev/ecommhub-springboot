@@ -1,6 +1,7 @@
 package com.ecommhub.blog.category;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,5 +24,6 @@ public class PostCategory {
             strategy = GenerationType.SEQUENCE
     )
     private Long categoryId;
+    @NotBlank(message="Please provide the category name")
     private String name;
 }
