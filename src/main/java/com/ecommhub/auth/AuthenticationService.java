@@ -1,5 +1,7 @@
 package com.ecommhub.auth;
 
+import com.ecommhub.cart.Cart;
+import com.ecommhub.cart.CartRepository;
 import com.ecommhub.config.JwtService;
 import com.ecommhub.user.Role;
 import com.ecommhub.user.User;
@@ -18,6 +20,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final CartRepository cartRepository;
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
@@ -28,6 +31,11 @@ public class AuthenticationService {
                 .role(Role.USER)
                 .build();
         repository.save(user);
+        // create user cart
+        Cart cart = Cart.builder()
+                .user(user)
+                .build();
+        cartRepository.save(cart);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }

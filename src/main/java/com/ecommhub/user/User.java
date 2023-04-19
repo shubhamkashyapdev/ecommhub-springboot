@@ -2,6 +2,7 @@ package com.ecommhub.user;
 
 import com.ecommhub.cart.Cart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -44,6 +45,11 @@ public class User implements UserDetails {
     )
     @JsonIgnore
     private Cart cart;
+
+    @JsonProperty("cartId")
+    public Long getCartId() {
+        return cart != null ? cart.getId() : null;
+    }
 
 
     @Enumerated(EnumType.STRING)
