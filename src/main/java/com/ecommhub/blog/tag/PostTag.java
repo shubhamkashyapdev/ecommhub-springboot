@@ -1,6 +1,7 @@
 package com.ecommhub.blog.tag;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,5 +24,6 @@ public class PostTag {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
+    @NotBlank(message="Please Provide The Post Tag Name")
     private String name;
 }

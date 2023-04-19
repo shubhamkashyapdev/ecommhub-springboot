@@ -8,9 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-class PostTagRepositoryTest {
+class PostPostTagRepositoryTest {
     @Autowired
-    private TagRepository tagRepository;
+    private PostTagRepository postTagRepository;
 
     @BeforeEach
     void setUp() {
@@ -24,15 +24,15 @@ class PostTagRepositoryTest {
         PostTag postTag2 = PostTag.builder()
                 .name("Javascript")
                 .build();
-        tagRepository.save(postTag1);
-        tagRepository.save(postTag2);
-        List<PostTag> postTags = tagRepository.findAll();
+        postTagRepository.save(postTag1);
+        postTagRepository.save(postTag2);
+        List<PostTag> postTags = postTagRepository.findAll();
         System.out.println(postTags);
     }
 
     @Test
     public void fetchAllTags(){
-        List<PostTag> postTags = tagRepository.findAll();
+        List<PostTag> postTags = postTagRepository.findAll();
         System.out.println(postTags);
     }
 }

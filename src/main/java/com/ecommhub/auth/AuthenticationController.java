@@ -1,5 +1,6 @@
 package com.ecommhub.auth;
 
+import com.ecommhub.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     private final AuthenticationService service;
-
-    @GetMapping
-    public ResponseEntity<String> publicRoute(){
-        return ResponseEntity.ok("This is a public route :)");
-    }
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
@@ -29,4 +25,6 @@ public class AuthenticationController {
     ){
         return ResponseEntity.ok(service.authenticate(request));
     }
+
+
 }

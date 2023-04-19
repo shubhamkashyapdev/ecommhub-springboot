@@ -3,7 +3,7 @@ package com.ecommhub.blog.post;
 import com.ecommhub.blog.category.PostCategory;
 import com.ecommhub.blog.category.PostCategoryRepository;
 import com.ecommhub.blog.tag.PostTag;
-import com.ecommhub.blog.tag.TagRepository;
+import com.ecommhub.blog.tag.PostTagRepository;
 import com.ecommhub.user.User;
 import com.ecommhub.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +25,7 @@ class PostRepositoryTest {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private TagRepository tagRepository;
+    private PostTagRepository postTagRepository;
 
     @BeforeEach
     void setUp() {
@@ -52,7 +52,7 @@ class PostRepositoryTest {
             PostTag postTag = PostTag.builder()
                     .name("Tag " + i)
                     .build();
-            PostTag db_Post_tag = tagRepository.save(postTag);
+            PostTag db_Post_tag = postTagRepository.save(postTag);
             postTags.add(db_Post_tag);
         }
         System.out.println(postTags);
