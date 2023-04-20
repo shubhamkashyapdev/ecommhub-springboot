@@ -8,4 +8,6 @@ public interface CartService {
     List<Cart> fetchAllCarts();
 
     Cart addProductToCart(Long cartId, CartProductDTO cartProductDTO) throws NotFoundException;
+
+    Cart removeProductFromCart(Long cartId, RemoveCartProductDTO removeCartProductDTO) throws NotFoundException;
 }

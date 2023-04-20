@@ -2,7 +2,9 @@ package com.ecommhub.cart;
 
 import com.ecommhub.order.Order;
 import com.ecommhub.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,7 +40,13 @@ public class CartProduct {
             name="cart_id",
             referencedColumnName = "id"
     )
+    @JsonIgnore
     private Cart cart;
+
+    @JsonProperty("cartId")
+    public Long getCartId() {
+        return cart != null ? cart.getId() : null;
+    }
 
     private int quantity;
 

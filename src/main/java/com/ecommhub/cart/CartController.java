@@ -20,8 +20,15 @@ public class CartController {
         return cartService.fetchAllCarts();
     }
 
-    @PutMapping("{cartId}")
+    @PutMapping("/add/{cartId}")
     public Cart addProductToCart(@PathVariable("cartId") Long cartId, @RequestBody() CartProductDTO cartProductDTO) throws NotFoundException {
         return cartService.addProductToCart(cartId, cartProductDTO);
     }
+
+    @PutMapping("/remove/{cartId}")
+    public Cart removeProductFromCart(@PathVariable("cartId") Long cartId, @RequestBody() RemoveCartProductDTO removeCartProductDTO) throws NotFoundException {
+        return cartService.removeProductFromCart(cartId, removeCartProductDTO);
+    }
+
+
 }
