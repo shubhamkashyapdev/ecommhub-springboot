@@ -30,12 +30,7 @@ public class Order {
             strategy = GenerationType.SEQUENCE
     )
     private Long id;
-    @OneToOne
-    @JoinColumn(
-            name="payment_id",
-            referencedColumnName = "id"
-    )
-    private Payment payment;
+    private int amount;
 
     @ManyToOne
     @JoinColumn(
@@ -52,8 +47,5 @@ public class Order {
             name="order_product_id",
             referencedColumnName = "id"
     )
-    private List<OrderProduct> orderProduct;
-
-
-
+    private List<OrderProduct> orderProducts;
 }
