@@ -4,6 +4,7 @@ import com.ecommhub.cart.Cart;
 import com.ecommhub.cart.CartProduct;
 import com.ecommhub.cart.CartRepository;
 import com.ecommhub.error.NotFoundException;
+import com.ecommhub.payment.fields.PaymentMethod;
 import com.ecommhub.user.User;
 import com.ecommhub.user.UserRepository;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order saveOrder(OrderDTO orderDTO) throws NotFoundException {
+
+        // @todo - if payment method is not CASH then there should be a payment id
+
+
         Optional<User> user = userRepository.findById(orderDTO.user());
         User db_user = user.orElseThrow(() -> new NotFoundException("User Not Found By Provided ID"));
 
@@ -58,6 +63,7 @@ public class OrderServiceImpl implements OrderService {
                 .user(db_user)
                 .orderProducts(orderProducts)
                 .amount(products_price)
+                .paymentMethod(PaymentMethod.valueOf(String.valueOf(orderDTO.paymentMethod())))
                 .build();
         return orderRepository.save(order);
     }

@@ -1,6 +1,7 @@
 package com.ecommhub.order;
 
 import com.ecommhub.payment.Payment;
+import com.ecommhub.payment.fields.PaymentMethod;
 import com.ecommhub.product.Product;
 import com.ecommhub.user.User;
 import jakarta.persistence.*;
@@ -32,12 +33,22 @@ public class Order {
     private Long id;
     private int amount;
 
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
+
     @ManyToOne
     @JoinColumn(
             name="user_id",
             referencedColumnName = "id"
     )
     private User user;
+
+    @OneToOne
+    @JoinColumn(
+            name="payment_id",
+            referencedColumnName = "id"
+    )
+    private Payment payment;
 
     @OneToMany(
             orphanRemoval = true,
