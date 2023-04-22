@@ -43,12 +43,6 @@ public class Order {
     )
     private User user;
 
-    @OneToOne
-    @JoinColumn(
-            name="payment_id",
-            referencedColumnName = "id"
-    )
-    private Payment payment;
 
     @OneToMany(
             orphanRemoval = true,
