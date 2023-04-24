@@ -17,7 +17,7 @@ import io.swagger.v3.oas.models.servers.Server;
 @Configuration
 public class OpenAPIConfig {
 
-    @Value("http://localhost:8080/api/v1")
+    @Value("http://localhost:8080")
     private String devUrl;
 
     @Value("https://ecommhubdev.app")

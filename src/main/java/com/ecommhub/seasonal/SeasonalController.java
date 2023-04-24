@@ -1,6 +1,7 @@
 package com.ecommhub.seasonal;
 
 import com.ecommhub.error.NotFoundException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/seasonal")
+@SecurityRequirement(name = "bearerAuth")
 public class SeasonalController {
     private final SeasonalService seasonalService;
 
