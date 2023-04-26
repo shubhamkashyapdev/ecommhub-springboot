@@ -74,4 +74,10 @@ public class CartServiceImpl implements CartService {
         cartRepository.save(db_cart);
         return db_cart;
     }
+
+    @Override
+    public Optional<Cart> fetchCart(Long cartId) {
+        Optional<Cart> cart = cartRepository.findById(cartId);
+        return cart;
+    }
 }

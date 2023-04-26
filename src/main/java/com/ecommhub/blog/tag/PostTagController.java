@@ -1,6 +1,7 @@
 package com.ecommhub.blog.tag;
 
 import com.ecommhub.error.NotFoundException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/post-tag")
+@SecurityRequirement(name = "bearerAuth")
 public class PostTagController {
     private final PostTagService postTagService;
 

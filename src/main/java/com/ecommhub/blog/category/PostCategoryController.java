@@ -1,12 +1,14 @@
 package com.ecommhub.blog.category;
 
 import com.ecommhub.error.NotFoundException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/category")
+@SecurityRequirement(name = "bearerAuth")
 public class PostCategoryController {
 
     private final PostCategoryService postCategoryService;

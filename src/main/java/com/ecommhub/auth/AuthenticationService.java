@@ -27,6 +27,7 @@ public class AuthenticationService {
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
+                .isActive(false)
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
@@ -36,6 +37,7 @@ public class AuthenticationService {
                 .user(user)
                 .build();
         cartRepository.save(cart);
+        // send email OTP
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }

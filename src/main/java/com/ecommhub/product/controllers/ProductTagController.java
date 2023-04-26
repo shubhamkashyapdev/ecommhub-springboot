@@ -4,12 +4,14 @@ import com.ecommhub.error.NotFoundException;
 import com.ecommhub.product.ProductTag;
 import com.ecommhub.product.records.ProductTagDTO;
 import com.ecommhub.product.service.ProductTagService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/product-tag")
+@SecurityRequirement(name = "bearerAuth")
 public class ProductTagController {
 
     private final ProductTagService productTagService;

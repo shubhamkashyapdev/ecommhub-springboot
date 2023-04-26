@@ -4,12 +4,14 @@ import com.ecommhub.error.NotFoundException;
 import com.ecommhub.product.Product;
 import com.ecommhub.product.records.ProductDTO;
 import com.ecommhub.product.service.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/product")
+@SecurityRequirement(name = "bearerAuth")
 public class ProductController {
     private final ProductService productService;
 

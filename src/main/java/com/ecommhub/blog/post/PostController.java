@@ -1,6 +1,7 @@
 package com.ecommhub.blog.post;
 
 import com.ecommhub.error.NotFoundException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/post")
+@SecurityRequirement(name = "bearerAuth")
 public class PostController {
     private final PostService postService;
 

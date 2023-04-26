@@ -39,6 +39,8 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
+    private boolean isActive;
+
     @OneToOne(
             mappedBy = "user",
             fetch = FetchType.LAZY
