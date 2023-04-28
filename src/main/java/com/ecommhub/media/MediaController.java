@@ -1,6 +1,8 @@
 package com.ecommhub.media;
 
 import com.ecommhub.error.NotFoundException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +12,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name="Media", description = "Media API")
 @RestController
 @RequestMapping("/api/v1/media")
+@SecurityRequirement(name = "bearerAuth")
 public class MediaController {
     private final MediaService mediaService;
     public MediaController(MediaService mediaService) {

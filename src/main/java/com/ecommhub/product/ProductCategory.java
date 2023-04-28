@@ -26,5 +26,5 @@ public class ProductCategory {
     private Long id;
     @NotBlank(message="Please provide category name")
     private String name;
-    private String image;
+    private Long image;
 }

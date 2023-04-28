@@ -1,4 +1,4 @@
 package com.ecommhub.blog.post;
 
-public record UpdatePostDTO(String title, String content, String excerpt, String featuredImage) {
+public record UpdatePostDTO(String title, String content, String excerpt, Long featuredImage) {
 }

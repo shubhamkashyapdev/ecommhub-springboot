@@ -2,10 +2,12 @@ package com.ecommhub.order;
 
 import com.ecommhub.error.NotFoundException;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name="Order", description = "Order API")
 @RestController
 @RequestMapping("/api/v1/order")
 @SecurityRequirement(name = "bearerAuth")

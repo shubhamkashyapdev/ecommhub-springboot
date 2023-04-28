@@ -5,10 +5,12 @@ import com.ecommhub.product.ProductBrand;
 import com.ecommhub.product.records.ProductBrandDTO;
 import com.ecommhub.product.service.ProductBrandService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name="Product Brand", description = "Product Brand API")
 @RestController
 @RequestMapping("/api/v1/product-brand")
 @SecurityRequirement(name = "bearerAuth")

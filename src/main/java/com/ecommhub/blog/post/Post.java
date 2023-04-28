@@ -29,7 +29,7 @@ public class Post {
             strategy = GenerationType.SEQUENCE
     )
     private Long postId;
-    private String featuredImage;
+    private Long featuredImage;
     private String title;
     private String content;
     private String excerpt;

@@ -37,8 +37,8 @@ public class Product {
     private String metaDescription;
     private List<String> keywords;
     private String description;
-    private String image;
-    private String imageGallery;
+    private Long image;
+    private List<Long> imageGallery;
     private int price;
     private boolean isProductOnSale;
     @Enumerated(EnumType.STRING)

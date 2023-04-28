@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Tag(name="Seasonal", description = "Product Seasonal Category API")
-
 @RestController
 @RequestMapping("/api/v1/seasonal")
 @SecurityRequirement(name = "bearerAuth")

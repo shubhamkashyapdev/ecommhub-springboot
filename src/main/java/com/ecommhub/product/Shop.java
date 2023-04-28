@@ -27,7 +27,7 @@ public class Shop {
     private boolean isActive;
     private String description;
     private String address;
-    private String coverImage;
+    private Long coverImage;
     private String logo;
     private String mobileNumber;
     private String website;

@@ -6,5 +6,5 @@ import com.ecommhub.user.User;
 
 import java.util.List;
 
-public record CreatePostDTO(String title, String content, String excerpt, String featuredImage, Long author, Long category, List<Long> postTags) {
+public record CreatePostDTO(String title, String content, String excerpt, Long featuredImage, Long author, Long category, List<Long> postTags) {
 }

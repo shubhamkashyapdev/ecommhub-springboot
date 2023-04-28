@@ -24,5 +24,5 @@ public class Seasonal {
     )
     private Long id;
     private String name;
-    private String image;
+    private Long image;
 }
