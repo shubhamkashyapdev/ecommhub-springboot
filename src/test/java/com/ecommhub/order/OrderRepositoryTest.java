@@ -71,9 +71,7 @@ class OrderRepositoryTest {
 
         // order
         Order order = Order.builder()
-                .payment(db_payment)
                 .user(db_user)
-                .orderProduct(List.of(orderProduct1, orderProduct2))
                 .build();
         Order db_order = orderRepository.save(order);
         System.out.println(db_order);

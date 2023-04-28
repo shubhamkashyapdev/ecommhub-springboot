@@ -2,6 +2,7 @@ package com.ecommhub.media;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,5 +29,8 @@ public class Media {
     private String url;
     private int height;
     private int width;
+    @NotBlank(message = "Please Provide ALT Text For Image")
     private String alt;
+    @Column(unique = true)
+    private String publicId;
 }
